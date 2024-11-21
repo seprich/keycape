@@ -1,0 +1,6 @@
+{
+    "name": "Go",
+    "dockerComposeFile": "compose.yaml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspaces/keycape"
+}
