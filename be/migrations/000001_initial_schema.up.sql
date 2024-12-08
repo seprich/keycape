@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS example(
+    id serial PRIMARY KEY,
+    username VARCHAR (255) UNIQUE NOT NULL
+);

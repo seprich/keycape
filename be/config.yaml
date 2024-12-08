@@ -1,4 +1,11 @@
 server:
   port: 8080
+db:
+  #url: postgres://localmost:5432/dbname
+  host: localhost
+  port: '5432'
+  dbName: keycape
+  user: test_user
+  passwd: test_pw
 hello:
   there: 234
