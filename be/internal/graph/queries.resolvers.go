@@ -13,7 +13,7 @@ import (
 
 // GetUser is the resolver for the getUser field.
 func (r *queryResolver) GetUser(ctx context.Context, id string) (*model.User, error) {
-	fake := model.User{ID: "1234", Name: "Blake Dance"}
+	fake := model.User{ID: id, Name: "Blake Dance"}
 	//panic(fmt.Errorf("not implemented: GetUser - getUser"))
 	return &fake, nil
 }
@@ -21,6 +21,16 @@ func (r *queryResolver) GetUser(ctx context.Context, id string) (*model.User, er
 // GetTodo is the resolver for the getTodo field.
 func (r *queryResolver) GetTodo(ctx context.Context, id string) (*model.Todo, error) {
 	panic(fmt.Errorf("not implemented: GetTodo - getTodo"))
+}
+
+// User is the resolver for the user field.
+func (r *queryResolver) User(ctx context.Context, id *string, name *string) ([]*model.User, error) {
+	if name != nil && *name == "test" {
+		u1 := model.User{ID: "1234", Name: "test"}
+		u2 := model.User{ID: "4321", Name: "test"}
+		return []*model.User{&u1, &u2}, nil
+	}
+	return []*model.User{}, nil
 }
 
 // Query returns QueryResolver implementation.

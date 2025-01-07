@@ -1,0 +1,21 @@
+# Backend services for local development runs
+services:
+
+  database:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: keycape
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_pw
+    ports:
+    - "5432:5432"
+
+  localstack:
+    image: localstack/localstack:4.0
+    environment:
+      SERVICES: cognito-idp
+    volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+    - "4566:4566"            # Localstack Gateway
+    - "4510-4559:4510-4559"  # external services port range

@@ -2,4 +2,5 @@
 type Query {
     getUser(id: ID!): User
     getTodo(id: ID!): Todo
+    user(id: ID, name: String): [User]
 }
